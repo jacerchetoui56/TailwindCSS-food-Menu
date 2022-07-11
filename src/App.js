@@ -6,11 +6,12 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { useState } from 'react'
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   function toggleMenu() {
     setIsOpen(!isOpen);
   }
   return (
-    <>
+    <div className={`${darkMode ? 'dark' : ''}`}>
       <div className="grid md:grid-cols-4">
         <div>
           <nav>
@@ -57,35 +58,35 @@ function App() {
             <div className="mt-8 grid md:grid-cols-3 gap-4 ">
               <div className="card">
                 <div className="badge">
-                  <AiOutlineClockCircle className='text-gray-700 font-bold mr-1' />
+                  <AiOutlineClockCircle className='text-gray-700 font-bold mr-1 dark:text-slate-300' />
                   24 min
                 </div>
                 <img className="w-full h-32 sm:h-48 object-cover" src="img/stew.jpg" alt="stew" />
                 <div className="m-4">
-                  <span className="font-bold">5 Bean Chili Stew</span>
-                  <span className="block text-gray-500">Recipe by Mario</span>
+                  <span className="font-bold dark:text-gray-200">5 Bean Chili Stew</span>
+                  <span className="block text-gray-500 dark:text-slate-300">Recipe by Mario</span>
                 </div>
               </div>
               <div className="card">
                 <div className="badge">
-                  <AiOutlineClockCircle className='text-gray-700 font-bold mr-1' />
+                  <AiOutlineClockCircle className='text-gray-700 dark:text-slate-300 font-bold mr-1' />
                   24 min
                 </div>
                 <img className="w-full h-32 sm:h-48 object-cover" src="img/noodles.jpg" alt="noodles" />
                 <div className="m-4">
-                  <span className="font-bold">Veg Noodles</span>
-                  <span className="block text-gray-500">Recipe by Mario</span>
+                  <span className="font-bold dark:text-gray-200">Veg Noodles</span>
+                  <span className="block text-gray-500 dark:text-slate-300">Recipe by Mario</span>
                 </div>
               </div>
               <div className="card">
                 <div className="badge">
-                  <AiOutlineClockCircle className='text-gray-700 font-bold mr-1' />
+                  <AiOutlineClockCircle className='text-gray-700 font-bold mr-1 dark:text-slate-300' />
                   24 min
                 </div>
                 <img className="w-full h-32 sm:h-48 object-cover" src="img/curry.jpg" alt="curry" />
                 <div className="m-4">
-                  <span className="font-bold">Tofu Curry</span>
-                  <span className="block text-gray-500">Recipe by Mario</span>
+                  <span className="font-bold dark:text-gray-200">Tofu Curry</span>
+                  <span className="block text-gray-500 dark:text-slate-300">Recipe by Mario</span>
                 </div>
               </div>
             </div>
@@ -101,7 +102,8 @@ function App() {
           </div>
         </main>
       </div>
-    </>
+      <button onClick={() => setDarkMode(!darkMode)} className='p-2 m-2 rounded-md bg-gray-400'>Dark Mode</button>
+    </div>
   );
 }
 
